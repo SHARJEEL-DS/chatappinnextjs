@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Chat App</title>
+        <title>sharjeel</title>
         <meta name="Chat-app" content="/" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
