@@ -1,18 +1,23 @@
 import React from "react";
 import { auth } from "../firebase";
+import {useRouter}  from 'next/router'
 
 const LogOut = () => {
+  
+  const router = useRouter();
   const signOut = () => {
     signOut(auth);
   };
 
+  const logout = () => {
+    sessionStorage.removeItem('username');
+    router.push('/auth/login')
+  }
   return (
     <button
-      onClick={() => auth.signOut()}
-      className="bg-gray-300 px-4 py-2 hover:bg-gray-100"
-    >
-      Log Out
-    </button>
+        className='bg-blue-400 text-white py-2 px-7 rounded-md'
+        onClick={ logout }
+      >Signout</button>
   );
 };
 

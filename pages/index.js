@@ -1,5 +1,6 @@
 import Head from "next/head";
-import React from "react";
+import React, { useEffect, useState } from 'react'
+import {useRouter}  from 'next/router'
 import Navbar from "../components/Navbar";
 
 import { auth } from "../firebase";
@@ -12,6 +13,20 @@ const style = {
     "flex flex-col h-[90vh] bg-gray-100 mt-10 shadow-xl border relative",
 };
 export default function Home() {
+
+  
+  const router = useRouter();
+  const [studentsData, setStudentsData] = useState([]);
+
+  useEffect(() => {
+    if(!sessionStorage.getItem("username")){
+      router.push('/auth/login')
+      // setUsername(sessionStorage.getItem("username"))
+    }
+    
+  }, [])
+  
+
   const [user] = useAuthState(auth);
   // console.log(user);
 
